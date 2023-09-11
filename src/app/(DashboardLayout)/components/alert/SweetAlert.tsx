@@ -8,7 +8,7 @@ const SweetAlert = ({ children }: { children: React.ReactNode }) => {
     const alert = useSelector((state: RootState) => state.alert);
     const dispatch = useDispatch();
     useEffect(() => {
-        if (alert.text.length > 1 && alert.title.length > 1)
+        if (alert?.text?.length > 1 && alert?.title?.length > 1)
             Swal.fire({
                 icon: alert.icon,
                 title: alert.title,

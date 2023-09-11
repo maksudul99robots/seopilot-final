@@ -28,10 +28,10 @@ const Profile = () => {
     router.push("/authentication/login");
 
     chrome.runtime.sendMessage(
-      "phddnlfmlkkjomdccfjjfkhnbmmcfocb", // Extension ID
+      localStorage.getItem("extension_id"), // Extension ID
       { action: "removeToken" },
       (response) => {
-        // console.log(response)
+        console.log(response)
         if (response && response.success) {
           console.log("Token stored in extension's local storage.",response);
         } else {
