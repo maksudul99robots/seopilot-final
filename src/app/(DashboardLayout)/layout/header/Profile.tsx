@@ -25,7 +25,7 @@ const Profile = () => {
 
   const logout=()=>{
     localStorage.removeItem("seo-pilot-token");
-    router.push("/authentication/login");
+    router.push("/login");
 
     chrome.runtime.sendMessage(
       localStorage.getItem("extension_id"), // Extension ID

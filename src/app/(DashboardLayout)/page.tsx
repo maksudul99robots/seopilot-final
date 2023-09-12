@@ -9,7 +9,7 @@ const Dashboard = () => {
 
         {/* <Publications/> */}
         <Alert severity="warning" sx={{backgroundColor:"#FFF4E5", width:"1000px", height:"100px", fontSize:"24px", display:"flex", justifyContent:"center", alignItems:"center"}}>
-          Please <strong>Restart</strong> The Seo Pilot Extension to get Logged in.
+        Close the extension and reopen it to get logged in.
         </Alert>
       </Box>
     </PageContainer>

@@ -65,7 +65,7 @@ const AuthLogin = ({ title, subtitle, subtext, submit, setPassword, setEmail, is
           </Typography>
           <Typography
             component={Link}
-            href="/authentication/forgot-password"
+            href="/forgot-password"
             fontWeight="500"
             sx={{
               textDecoration: "none",

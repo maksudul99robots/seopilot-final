@@ -43,7 +43,7 @@ const Login2 = () => {
       Swal.fire({
         title: 'Enter your Extension ID',
         input: 'text',
-        inputLabel: 'Settings > Manage Extensions > Copy SEOPilot Extension ID.',
+        inputLabel: 'Settings > Extensions > Copy SEOPilot Extension ID.',
         inputValue: "",
         showCancelButton: true,
         inputValidator: (value) => {
@@ -197,7 +197,7 @@ const Login2 = () => {
                       sx={{ color: "#B5B5C3", fontWeight: "bold" }}
                     >
                       New Here?&nbsp;
-                      <Link href="/authentication/register" style={{ textDecoration: "none" }}>
+                      <Link href="/register" style={{ textDecoration: "none" }}>
 
                         <span style={{ color: "#009EF7", fontWeight: "bold", }}>Create an Account to SEOPilot</span>
 
@@ -223,7 +223,7 @@ const Login2 = () => {
                     </Typography>
                     <Typography
                       component={Link}
-                      href="/authentication/register"
+                      href="/register"
                       fontWeight="500"
                       sx={{
                         textDecoration: "none",

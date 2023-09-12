@@ -10,6 +10,7 @@ import { ValidateEmail } from "@/app/services/emailValidation";
 import { LoginRegistrationAPI } from "@/app/services/API";
 import { setAlert } from "@/app/GlobalRedux/Features/Alert/alertSlice";
 import Logo from "@/app/(DashboardLayout)/layout/shared/logo/Logo";
+import Swal from "sweetalert2";
 
 const Register2 = () => {
   const [email, setEmail] = useState('');
@@ -27,30 +28,37 @@ const Register2 = () => {
       if (password.length > 6) {
         if (password == confirmPassword) {
           setLoading(true);
-          LoginRegistrationAPI.register({ email, password, confirmPassword, firstName, lastName }).then((res)=>{
+          LoginRegistrationAPI.register({ email, password, confirmPassword, firstName, lastName }).then((res) => {
             setLoading(false);
-            dispatch(setAlert({title:"Success", icon:'success', text:"A verification email is sent."}))
-          }).catch((e)=>{
+            // dispatch(setAlert({title:"Success", icon:'success', text:"A verification email is sent."}))
+            Swal.fire(
+              'Success',
+              'A verification email is sent.',
+              'success'
+            ).then(res=>{
+              router.push("/login")
+            })
+          }).catch((e) => {
             setLoading(false);
-            dispatch(setAlert({title:"Error", icon:'error', text:"Something went wrong"}))
+            dispatch(setAlert({ title: "Error", icon: 'error', text: "Something went wrong" }))
           })
 
-        }else{
-          dispatch(setAlert({title:"Error", icon:'error', text:"Password must be at least 7 characters long."}))
+        } else {
+          dispatch(setAlert({ title: "Error", icon: 'error', text: "Password must be at least 7 characters long." }))
         }
       }
-    }else{
-      dispatch(setAlert({title:"Error", icon:'error', text:"Email is not valid"}))
+    } else {
+      dispatch(setAlert({ title: "Error", icon: 'error', text: "Email is not valid" }))
     }
   }
 
-  useEffect(()=>{
-    if(email.length>1 && isEmailValid && password.length>6 && password==confirmPassword){
+  useEffect(() => {
+    if (email.length > 1 && isEmailValid && password.length > 6 && password == confirmPassword) {
       setDisable(false);
-    }else{
+    } else {
       setDisable(true)
     }
-  },[email,password,confirmPassword])
+  }, [email, password, confirmPassword])
 
   useEffect(() => {
     if (email.length > 1)
@@ -129,7 +137,7 @@ const Register2 = () => {
                     </Typography>
                     <Typography
                       component={Link}
-                      href="/authentication/login"
+                      href="/login"
                       fontWeight="500"
                       sx={{
                         textDecoration: "none",

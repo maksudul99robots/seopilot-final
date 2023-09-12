@@ -77,7 +77,7 @@ const ResetPassword = (props: any) => {
                 icon: 'success',
                 confirmButtonText: 'Ok',
               }).then(res => {
-                router.push('/authentication/login')
+                router.push('/login')
               })
             } else {
               dispatch(setAlert({ title: "Error", icon: 'error', text: "Error occured" }))

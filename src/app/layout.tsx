@@ -12,7 +12,7 @@ import SweetAlert from "./(DashboardLayout)/components/alert/SweetAlert";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 
   const router = useRouter();
-  const publicRoutes = ['/authentication/login', '/authentication/register','/authentication/forgot-password', '/token','/reset-password', '/verify-email'];
+  const publicRoutes = ['/login', '/register','/forgot-password', '/token','/reset-password', '/verify-email'];
   const isPublicRoute = publicRoutes.includes(usePathname());
 
 
@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     }
     // Check if it's a private route and user is not authenticated
     else if (!isPublicRoute && !isAuthenticated()) {
-      router.push('/authentication/login'); // Redirect to login if not authenticated
+      router.push('/login'); // Redirect to login if not authenticated
     }
   }, [usePathname()]);
 

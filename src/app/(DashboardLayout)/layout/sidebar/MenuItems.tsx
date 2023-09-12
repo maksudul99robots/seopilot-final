@@ -65,7 +65,7 @@ const Menuitems = [
     id: uniqueId(),
     title: "Search Publication",
     icon: IconSearch,
-    href: "/authentication/login",
+    href: "/login",
   },
   // {
   //   navlabel: true,

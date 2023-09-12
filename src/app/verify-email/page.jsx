@@ -24,7 +24,7 @@ const VerifyEmail = () => {
                     icon: 'success',
                     confirmButtonText: 'Ok',
                 }).then(res => {
-                    router.push('/authentication/login')
+                    router.push('/login')
                 })
             }
         }).catch(err => {
@@ -35,7 +35,7 @@ const VerifyEmail = () => {
                 icon: 'error',
                 confirmButtonText: 'Close',
             }).then(res => {
-                router.push('/authentication/login')
+                router.push('/login')
             })
         })
     }
