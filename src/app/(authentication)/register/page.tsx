@@ -39,8 +39,9 @@ const Register2 = () => {
               router.push("/login")
             })
           }).catch((e) => {
+            console.log(e)
             setLoading(false);
-            dispatch(setAlert({ title: "Error", icon: 'error', text: "Something went wrong" }))
+            dispatch(setAlert({ title: "Error", icon: 'error', text: e.response.data }))
           })
 
         } else {
