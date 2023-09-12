@@ -22,21 +22,7 @@ const Login2 = () => {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
-  // useEffect(() => {
-  //   setInterval(()=>{
-  //     chrome?.runtime?.sendMessage({ action: "checkExtension", extensionId: extensionId }, (response) => {
 
-  //       console.log("extension response:",response)
-  //       // if (response.installed) {
-  //       //   setExtensionStatus("Extension is installed.");
-  //       // } else {
-  //       //   setExtensionStatus("Extension is not installed.");
-  //       // }
-  //     });
-  //     return true;
-  //   }, 1000);
-
-  // }, []);
 
   useEffect(() => {
     if (!localStorage.getItem("extension_id"))

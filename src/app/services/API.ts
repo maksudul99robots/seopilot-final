@@ -34,6 +34,9 @@ export const LoginRegistrationAPI = {
   async checkVerification(data: any, url = "/check-verification", source = undefined) {
     return await axios.post(`${API_ROOT}${url}`, data, source);
   },
+  async resendVerificationEmail(data: any, url = "/resend-verification", source = undefined) {
+    return await axios.post(`${API_ROOT}${url}`, data, source);
+  },
 
 };
 export const PublicationsApi = {

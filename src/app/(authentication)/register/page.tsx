@@ -35,8 +35,9 @@ const Register2 = () => {
               'Success',
               'A verification email is sent.',
               'success'
-            ).then(res=>{
-              router.push("/login")
+            ).then(()=>{
+              localStorage.setItem("seo-pilot-token", res.data.accessToken);
+              router.push("/")
             })
           }).catch((e) => {
             console.log(e)
