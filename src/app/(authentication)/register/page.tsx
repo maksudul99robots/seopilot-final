@@ -23,6 +23,26 @@ const Register2 = () => {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
+
+  const sendTokenToExtension = (token: string) => {
+    if (localStorage.getItem("extension_id")) {
+      // console.log("sending!!")
+      chrome.runtime.sendMessage(
+        localStorage.getItem("extension_id"), // Extension ID
+        { action: "storeToken", token: token },
+        (response) => {
+          console.log("response:",response)
+          if (response && response.success) {
+            console.log("Token stored in extension's local storage.",response);
+          } else {
+            console.error("Failed to store token in extension.");
+          }
+        }
+      );
+    }
+
+  };
+  
   const submit = () => {
     if (isEmailValid) {
       if (password.length > 6) {
@@ -36,6 +56,7 @@ const Register2 = () => {
               'A verification email is sent.',
               'success'
             ).then(()=>{
+              sendTokenToExtension(res.data.accessToken);
               localStorage.setItem("seo-pilot-token", res.data.accessToken);
               router.push("/")
             })
